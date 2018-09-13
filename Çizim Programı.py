@@ -71,7 +71,7 @@ class Çizim(tk.Tk):
                                 variable=self.radiodegeri,
                                 value=2).grid(row = 4, column = 0, sticky ="nw", pady = 2, padx = 3)
         self.radio3 = tk.Radiobutton(self.solframe,
-                                text="Kare",
+                                text="Dörtgen",
                                 variable=self.radiodegeri,
                                 value=3).grid(row = 5, column = 0, sticky ="nw", pady = 2, padx = 3)
 
@@ -100,7 +100,7 @@ class Çizim(tk.Tk):
         elif (self.radiodegeri.get() == 2):
             self.nesneler[len(self.nesneler)+1] = Çizgi(self.tuval,self.event,self.basx,self.basy,self.kalemKalınlığı,self.renk)
         elif (self.radiodegeri.get() == 3):
-            self.nesneler[len(self.nesneler)+1] = Kare(self.tuval,self.event,self.basx,self.basy,self.kalemKalınlığı,self.renk)
+            self.nesneler[len(self.nesneler)+1] = Dörtgen(self.tuval,self.event,self.basx,self.basy,self.kalemKalınlığı,self.renk)
         elif (self.radiodegeri.get() == 4):
             self.nesneler[len(self.nesneler)+1] = Çember(self.tuval,self.event,self.basx,self.basy,self.kalemKalınlığı,self.renk)
 
@@ -118,8 +118,8 @@ class Çizim(tk.Tk):
             Çizgi.çizgi = 0
             self.nesneler[len(self.nesneler)+1] = Çizgi(self.tuval,self.event,self.basx,self.basy,self.kalemKalınlığı,self.renk)
         elif (self.radiodegeri.get() == 3):
-            Kare.kare = 0
-            self.nesneler[len(self.nesneler)+1] = Kare(self.tuval,self.event,self.basx,self.basy,self.kalemKalınlığı,self.renk)
+            Dörtgen.Dörtgen = 0
+            self.nesneler[len(self.nesneler)+1] = Dörtgen(self.tuval,self.event,self.basx,self.basy,self.kalemKalınlığı,self.renk)
         elif (self.radiodegeri.get() == 4):
             Çember.çember = 0
             self.nesneler[len(self.nesneler)+1] = Çember(self.tuval,self.event,self.basx,self.basy,self.kalemKalınlığı,self.renk)
@@ -235,14 +235,14 @@ class Çizgi(Nokta):
         
 
 
-class Kare(Çizgi):
-    kare = 0
+class Dörtgen(Çizgi):
+    Dörtgen = 0
     def __init__(self,master,event,basx,basy,kalem,renk):
         super().__init__(master,event,basx,basy,kalem,renk)
 
     def Koy(self):
-        self.master.delete(Kare.kare)
-        Kare.kare = self.master.create_rectangle(self.basx,
+        self.master.delete(Dörtgen.Dörtgen)
+        Dörtgen.Dörtgen = self.master.create_rectangle(self.basx,
                                      self.basy,
                                      self.event.x,
                                      self.event.y,
